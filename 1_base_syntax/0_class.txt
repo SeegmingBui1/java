@@ -165,3 +165,14 @@ JDK {
             java -version   查看版本是否为自己安装的版本
             which java      查看路径是否为自己安装的路径
 
+        编译
+            javac hello.java    生成class文件(字节码文件)
+                -classpath  指定依赖的class路径在哪
+                在当前目录下生成class文件
+
+        运行
+            java hello
+                运行当前目录下必须有hello.class文件
+                -classpath 指定class文件在哪
+
+
