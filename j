@@ -1,12 +1,28 @@
 #!/bin/bash
 
-classname=${1-kyo}
+my_exit() {
+    echo $1
+    exit $2
+}
 
-cat >> ${classname}.java << EOF
-public class ${classname} {
+java_file() {
+    cat >> $filename << EOF
+public class $classname {
     static public void main(String [] args) {
     }
 }
 EOF
+    vim ${filename} +2 "+normal o"
+}
 
-vim ${classname}.java +2 "+normal o"
+java_run() {
+    javac $filename && java $classname && rm *.class -rf
+}
+
+classname=${1}
+test -z "$classname" && my_exit "必须指定目标!" 1
+classname=${classname%.java*}
+filename=${classname}.java
+
+test -f "$filename" && java_run || java_file
+
