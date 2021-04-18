@@ -24,5 +24,23 @@ public class op {
 
         // a = a + 10;
         a += 10;
+
+        // a = (a > 10) ? b + 10 : b - 10;
+        a = (a > 10) ? (b > 10 ? b + 10 : b + 20) : b - 10;
+
+        /*
+         * if (a > 10)
+         *     a = b + 10;
+         * else
+         *     a = b - 10;
+         */
+
+        System.out.println("a = " + a);
+
+        System.out.println("last a = " + (a++));
+        System.out.println("last last a = " + a);
+        // a++ == (a = a + 1)
+        // ++a == (a = a + 1)
+
     }
 }
