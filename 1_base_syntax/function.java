@@ -1,18 +1,24 @@
 import java.util.Scanner;
 
 public class function {
+
+    static int g = 100;
+
     static public void swap(int a, double d, char c) {
         int b = 678;
         b++;
         System.out.printf("int = %d, double = %f, char = %c\n", a ,d, c);
+        g++;
         a++;
     }
 
     static public int sub(int a, int b) {
+        g++;
         return a - b;
     }
 
     static public int add(int a, int b) {
+        g++;
         // return a + b;
         return sub(a, b);
     }
@@ -57,6 +63,7 @@ public class function {
             prev2 = prev1;
             prev1 = s;
         }
-        System.out.printf("fb(%d) = %d\n", n, s);
+        System.out.printf("fb(%d) = %d, g = %d\n", n, s, g);
+
     }
 }
