@@ -24,5 +24,9 @@ test -z "$classname" && my_exit "必须指定目标!" 1
 classname=${classname%.java*}
 filename=${classname}.java
 
-test -f "$filename" && java_run || java_file
+if test -f "$filename" ; then
+    java_run
+else
+    java_file
+fi
 
