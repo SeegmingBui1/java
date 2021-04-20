@@ -16,7 +16,7 @@ EOF
 }
 
 java_run() {
-    javac $filename && java $classname && rm *.class -rf
+    javac $filename && java $classname $@ && rm *.class -rf
 }
 
 classname=${1}
@@ -25,7 +25,8 @@ classname=${classname%.java*}
 filename=${classname}.java
 
 if test -f "$filename" ; then
-    java_run
+    shift
+    java_run "$@"
 else
     java_file
 fi
