@@ -16,5 +16,11 @@ public class io {
         char ch = sc.next().charAt(0);
 
         System.out.printf("num = %d, float = %.2f, char = %c\n", num, f, ch);
+
+        System.out.printf("time = %d\n", System.currentTimeMillis());
+
+        System.out.printf("rand = %f\n", Math.random());
+
+        System.exit(99);
     }
 }
