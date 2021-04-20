@@ -139,9 +139,114 @@ public class Homework {
         }
     }
 
+    // 4. 求1000以内的完数 (所有因子之和等于本身)
+    static public boolean isPerfectNum(int num) {
+        int sum = 1;
+
+        for (int i = num / 2; i >= 2; i--) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+        return (sum == num) ? true : false;
+    }
+
+    static public void prefectNum() {
+        for (int i = 2; i < 1000; i++) {
+            if (isPerfectNum(i)) {
+                System.out.printf("%d ", i);
+            }
+        }
+        System.out.println();
+    }
+
+    // 5. 求1000以内的水仙花数 (每个位数的立方之和等于本身)
+    static public boolean isFlowerNum(int num) {
+        int oldNum = num, sum = 0, mod = 0;
+
+        while (num > 0) {
+            mod = num % 10;
+            sum += mod * mod * mod;
+            num /= 10;
+        }
+        return (sum == oldNum) ? true : false;
+    }
+    static public void flowerNum() {
+        for (int i = 2; i < 1000; i++) {
+            if (isFlowerNum(i)) {
+                System.out.printf("%d ", i);
+            }
+        }
+        System.out.println();
+    }
+
+    // 10. 判断用户输入的数是否是回文数(11,121,12321)
+    static public boolean isPalindrome(long num) {
+        if (num < 10) {
+            return false;
+        }
+        /*
+         * num / 1 % 10
+         * num / 10 % 10
+         * num / 100 % 10
+         * num / 1000 % 10
+         * num / 10000 % 10
+         * num / 100000 % 10
+         */
+        long oldNum = num, sum = 0;
+
+        while (num > 0) {
+            sum = sum * 10 + num % 10;
+            num /= 10;
+        }
+        return (sum == oldNum) ? true : false;
+    }
+
+    static public void palindrome() {
+        long num;
+
+        while (true) {
+            System.out.printf("请输入一个数字: ");
+            num = sc.nextLong();
+            if (num == -1) {
+                break;
+            }
+
+            if (isPalindrome(num)) {
+                System.out.printf("%d 是回文数!\n", num);
+            } else {
+                System.out.printf("\033[31m%d 不是回文数!\033[0m\n", num);
+            }
+        }
+    }
+
+    // 6. 输入一个字符，转换大小写(不能使用if)
+    static public void charTo() {
+        char ch, ret;
+
+        while (true) {
+            System.out.printf("请输入一个字符: ");
+            ch = sc.next().charAt(0);
+            if (ch == '/') {
+                break;
+            }
+
+            ret = (char)((ch >= 'a' && ch <= 'z'
+                            || ch >= 'A' && ch <= 'Z')
+                                ?  ((ch >= 'a') ? ch - 32 : ch + 32)
+                                :  ch);
+
+            System.out.printf("%c <==> %c\n", ch, ret);
+        }
+    }
+
     static public void main(String [] args) {
         sc = new Scanner(System.in);
         // blackFri();
-        fish();
+        // fish();
+        prefectNum();
+        flowerNum();
+        // palindrome();
+        charTo();
     }
 }
