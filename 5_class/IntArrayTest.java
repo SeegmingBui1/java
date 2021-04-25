@@ -1,19 +1,25 @@
 import java.util.Scanner;
 
 class IntArray {
+    //封装数组变量声明
     private int [] arr;
+    // 默认数组元素个数
     static final int DEFAULT_MAX = 10;
+    //定义输入对象
     static Scanner sc = new Scanner(System.in);
 
+    //无参的构造方法
     public IntArray() {
         this.arr = new int[DEFAULT_MAX];
     }
 
+    // 指定长度和数组的构造方法
     public IntArray(int len, int ... data) {
         this.arr = new int[len];
         System.arraycopy(data, 0, arr, 0, len);
     }
 
+    // 指定初始方式、初始范围及初始长度的构造方法
     public IntArray(int len, int start, int end, String flag) {
         this.arr = new int[len];
         if (flag.equals("rand"))
@@ -22,12 +28,21 @@ class IntArray {
             this.input(arr, start, end);
     }
 
+    //返回数组对应下标的元素值
     int at(int index) {
         return arr[index];
     }
 
+    // 返回数组副本的引用
     int [] getArray() {
-        return arr;
+        int [] ret = new int[arr.length];
+        System.arraycopy(arr, 0, ret, 0, arr.length);
+        return ret;
+    }
+
+    //返回数组元素个数
+    int length() {
+        return arr.length;
     }
 
     //封装printf函数
@@ -53,6 +68,7 @@ class IntArray {
         return arr;
     }
 
+    //随机初始数组, 指定初始范围
     public IntArray rand(int start, int end) {
         rand(this.arr, start, end);
         return this;
@@ -76,11 +92,13 @@ class IntArray {
         return out;
     }
 
+    //无参形式输出数组元素值
     public IntArray show() {
         show(this.arr, false);
         return this;
     }
 
+    //带指定前缀的输出数组元素值
     public IntArray show(String prompt) {
         printf("%s", prompt);
         return show();
@@ -107,6 +125,7 @@ class IntArray {
         return arr;
     }
 
+    //用户输入指定范围值的初始化
     public IntArray input(int start, int end) {
         input(this.arr, start, end);
         return this;
@@ -143,6 +162,7 @@ class IntArray {
         return arr;
     }
 
+    // 对类封装数组进行反转方法
     public IntArray rev(int ... range) {
         rev(this.arr, range);
         return this;
@@ -172,10 +192,12 @@ class IntArray {
         return m;
     }
 
+    // 返回类中封装数组的最大值
     public int max() {
         return max(this.arr);
     }
 
+    // 返回类中封装数组的最小值
     public int min() {
         return min(this.arr);
     }
@@ -194,6 +216,7 @@ class IntArray {
         return arr;
     }
 
+    // 对类数组元素左移方法
     public IntArray left() {
         left(this.arr);
         return this;
@@ -213,6 +236,7 @@ class IntArray {
         return arr;
     }
 
+    // 对类数组元素右移方法
     public IntArray right() {
         right(this.arr);
         return this;
@@ -256,6 +280,7 @@ class IntArray {
         return arr;
     }
 
+    // 对类数组排序方法
      public IntArray sort() {
          sort(this.arr);
          return this;
@@ -284,7 +309,5 @@ public class IntArrayTest {
         // 数组操作的类版本
         IntArray arr = new IntArray();
         arr.rand(100, 100).show("rand: ").input(100, 999).show("input: ");
-        arr.show().show().show();
-
     }
 }
