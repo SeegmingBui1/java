@@ -63,3 +63,30 @@ Object类
 
 字符串
 
+作业:
+    去除字符串重复字符
+    将字符串连续重复字符合并一个
+    判断字符串是否有回文
+    统计字符串单词个数(分隔符为空格， 考虑连续分隔符问题)
+    输入两个字符串，连接两个字符串，并且去除两字符串相同单词输出
+        what is your name
+        my name is kyo
+        结果: what your my kyo
+
+        what is your name
+        is my nisame is kyo is
+        结果: what your name my nisame kyo
+
+    用户输入一个字符串，对此字符串以单词进行反转
+        how are you
+        输出: you are how
+
+    输出两个字符串的最大公共子串
+        howareyou
+        hwwarett
+            输出: ware
+
+    输入一个字符串，对其字符串提取数字到数组，算出其和
+        jsdfklsdjf123sdjflk456sjdf12
+        输出: 123 + 456 + 12
+
