@@ -38,6 +38,11 @@ class kyo {
     protected void finalize() throws Throwable {
         System.out.printf("kyo delete!\n");
     }
+
+    public String toString() {
+        return "kyo class a = " + a;
+    }
+
 }
 
 public class ObjectTest {
@@ -57,6 +62,7 @@ public class ObjectTest {
 
         v.show();
 
+        System.out.println(v);
         System.out.println(v.toString());
 
         v = null;
