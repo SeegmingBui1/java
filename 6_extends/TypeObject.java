@@ -10,6 +10,11 @@ public class TypeObject {
         // int n = i.intValue();
         int n = 8888;
 
+        System.out.printf("int max: %d\n", Integer.MAX_VALUE);
+        System.out.printf("int min: %d\n", Integer.MIN_VALUE);
+        System.out.println("int hex = 0x" + Integer.toHexString(1999));
+        System.out.printf("String to int = %d\n", Integer.parseInt("1999"));
+
         i = n;
 
         set(i);
